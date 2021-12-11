@@ -14,3 +14,7 @@
       }
     }
   }
+
+  .active,.active:focus,.active::after{
+    background-color: #F7941D;
+  }

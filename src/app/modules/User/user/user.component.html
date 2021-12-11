@@ -1,28 +1,78 @@
+<div class="container w-75" *ngIf="!showUpdate">
+    <div class="row d-flex justify-content-center  " >
+        <div class="col-sm-6 ml-5" *ngFor="let u of tab.body | paginate: { itemsPerPage: 4, currentPage: p}" >
+           <!-- <mat-card class="example-card " >
+                <mat-card-header>
+                  <div mat-card-avatar class="example-header-image"></div>
+                  <mat-card-title>{{u.nom}} {{u.prenom}}</mat-card-title>
+                  <mat-card-subtitle>{{u.proffesion}}</mat-card-subtitle>
+                </mat-card-header>
+                <mat-card-content>
+                    <div class="d-flex flex-row pt-3">
+                            <p class="pr-3"><b>Email : </b></p>{{u.email}} 
+                           
+                    </div>
+                    <div class="d-flex flex-row">
+                        <p class="pr-3"><b>Role : </b></p>{{u.roles[0].role}}
+                       
+                    </div>
+                    <div class="d-flex flex-row">
+                        <p class="pr-3"><b>Adress : </b></p>{{u.street}} {{u.city}} {{u.state}}  {{u.zip}}
+                       
+                    </div>
+                 
+                </mat-card-content>
+                <mat-card-actions>
+                  <button mat-button >UPDATE</button>
+                  <button mat-button (click)="delete(u.idClient)" [disabled]="u.roles[0].role=='ADMIN'">DELETE</button>
+                </mat-card-actions>
+            </mat-card>  -->
 
-<mat-grid-list cols="3"  rowHeight="1.5:1">
-    <mat-grid-tile >
-        <mat-card class="example-card">
-            <mat-card-header>
-              <div mat-card-avatar class="example-header-image"></div>
-              <mat-card-title>Shiba Inu</mat-card-title>
-              <mat-card-subtitle>Dog Breed</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-              <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-              </p>
-            </mat-card-content>
-            <mat-card-actions>
-              <button mat-button>UPDATE</button>
-              <button mat-button>DELETE</button>
-            </mat-card-actions>
-          </mat-card>  
-    </mat-grid-tile>
+            <div class="card mt-3" style="width: 20rem;">
+                <div class="card-header ">
+                <div class="text-center">
+                    <div class="user-profile">
+                    <div class="user-avatar">
+                        <img *ngIf="u.docName!=null" src="../../../../assets/{{u.docName}}" width="50"alt="Admin">
+                        
+                        <img *ngIf="u.docName==null && u.genre=='m'" src="../../../assets/user.png" width="50" alt="Admin">
+                        <img *ngIf="u.docName==null && u.genre=='w'" src="../../../assets/femme.png" width="50" alt="Admin">
+                    </div>
+                    <b>{{u.nom}} {{u.prenom}}</b> <p>{{u.proffesion}}</p></div>
+                </div>
+                </div>
+                <div class="card-body">
+                  
+                  
+                  <div class="d-flex flex-row pt-3">
+                    <p class="pr-3"><b>Email : </b></p>{{u.email}} 
+                   
+                </div>
+                <div class="d-flex flex-row">
+                    <p class="pr-3"><b>Role : </b></p>{{u.roles[0].role}}
+                
+                </div>
+                <div class="d-flex flex-row">
+                    <p class="pr-3"><b>Adress: </b></p>{{u.street}} {{u.city}} {{u.state}}  {{u.zip}}
+                
+                </div>
+                      
+                  
+                </div>
+                <div class="card-footer text-center">
+                    <input type="button" class="btn btn-outline-dark " value="UPDATE">
+                    <input type="button" class="btn btn-outline-dark pr-2"  (click)="delete(u.idClient)" value="DELETE">
+                </div>
+              </div>
+        </div>
+    </div>
+    <div class="text-center mt-5  ">
+        <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
+    </div>
+    <form >
+        <div class="form-group">
+            <label></label>
+        </div>
+    </form>
+    </div>
     
-</mat-grid-list>
-              
-    
-    
-      

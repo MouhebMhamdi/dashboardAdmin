@@ -15,4 +15,8 @@ export class UserServiceService {
   getAllUsers(){
     return this.http.get(this.url+"/user/getAllUsers",{observe:"response"});
   }
+
+  deleteUsers(id:any){
+    return this.http.delete(this.url+"/user/deleteUser/"+id,{observe:"response"});
+  }
 }
