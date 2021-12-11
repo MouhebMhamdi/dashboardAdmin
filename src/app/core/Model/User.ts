@@ -11,7 +11,8 @@ export class Users{
     tel:string;
     zip:Int32Array;
     street:string;
-    profession:string;
+    proffession:string;
     docName:string;
+    genre:string;
     
   }
