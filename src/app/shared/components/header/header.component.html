@@ -1,4 +1,4 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" *ngIf="users.email!=null">
     <mat-toolbar-row>
         <button mat-icon-button (click)="toggleSideBar()">
             <mat-icon>menu</mat-icon>
@@ -13,7 +13,7 @@
                             <mat-icon>person_outline</mat-icon>
                         </button>
                         <mat-menu #menu="matMenu">
-                          <button mat-menu-item> <mat-icon>exit_to_app</mat-icon>logout</button>
+                          <button mat-menu-item (click)="logout()"> <mat-icon>exit_to_app</mat-icon>logout</button>
                           
                         </mat-menu>
                     </li>

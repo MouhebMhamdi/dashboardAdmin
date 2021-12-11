@@ -18,6 +18,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 
 
@@ -46,7 +47,10 @@ import {MatGridListModule} from '@angular/material/grid-list';
     NgbModule,
     MatCardModule,
     MatButtonModule,
-    MatGridListModule
+    MatGridListModule,
+    BrowserModule,
+    NgxPaginationModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

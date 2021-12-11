@@ -15,7 +15,12 @@ import { HighchartsChartModule } from 'highcharts-angular';
 import { CardComponent } from './widgets/card/card.component';
 import { PieComponent } from './widgets/pie/pie.component';
 import { TableComponent } from './widgets/table/table.component';
-import { MatTableModule } from '@angular/material/table'  
+import { MatTableModule } from '@angular/material/table';
+import { NotFoundComponent } from './components/not-found/not-found.component'  
+import { AppRoutingModule } from '../app-routing.module';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
@@ -26,6 +31,7 @@ import { MatTableModule } from '@angular/material/table'
     CardComponent,
     PieComponent,
     TableComponent,
+    NotFoundComponent,
   ],
   imports: [
     CommonModule,
@@ -38,6 +44,10 @@ import { MatTableModule } from '@angular/material/table'
     MatListModule,
     HighchartsChartModule,
     MatTableModule,
+    AppRoutingModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    NgbModule
     
   ],
   exports: [

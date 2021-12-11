@@ -1,10 +1,10 @@
-<mat-nav-list>
+<mat-nav-list *ngIf="users.email!=null">
     <div class="profile-card mb-3">
         <br>
-        <img src="/assets/mouheb.jpg"  alt="User Photo">
+        <img src="/assets/{{users.docName}}"  alt="User Photo">
         <div class="header">
-            <h2>Mouheb Mhamdi</h2>
-            <p >example@email.com</p>
+            <h2>{{users.nom}} {{users.prenom}}</h2>
+            <p >{{users.email}}</p>
         </div>
     </div>
 
@@ -12,11 +12,11 @@
 
     <h2 matSubheader>Gestions</h2>
 
-    <a mat-list-item routerLinkActive="list-item-active" href="/user"> User</a>
-    <a mat-list-item routerLinkActive="list-item-active" href="/produit"> Produit</a>
-    <a mat-list-item routerLinkActive="list-item-active" href="/stock"> Stock</a>
-    <a mat-list-item routerLinkActive="list-item-active" href="/facture"> Facture</a>
-    <a mat-list-item routerLinkActive="list-item-active" href="/fournisseur">Fournisseur</a>
+    <a mat-list-item routerLinkActive="active" routerLink='/user'> User</a>
+    <a mat-list-item routerLinkActive="active" routerLink="/produit"> Produit</a>
+    <a mat-list-item routerLinkActive="active" routerLink="/stock"> Stock</a>
+    <a mat-list-item routerLinkActive="active" routerLink="/facture"> Facture</a>
+    <a mat-list-item routerLinkActive="active" routerLink="/fournisseur">Fournisseur</a>
     
     <mat-divider></mat-divider>
 
