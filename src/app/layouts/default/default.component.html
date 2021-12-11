@@ -1,8 +1,8 @@
-<app-header (toggeleSideBarForMe)="sideBarToggler() "></app-header>
+<app-header *ngIf="users.email!=null" (toggeleSideBarForMe)="sideBarToggler() "></app-header>
 
 
-<mat-drawer-container>
-    <mat-drawer mode="side" [opened]="sideBarOpen">
+<mat-drawer-container  >
+    <mat-drawer *ngIf="users.email!=null" mode="side" [opened]="sideBarOpen">
         <app-sidebar></app-sidebar>
     </mat-drawer>
     <mat-drawer-content>

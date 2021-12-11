@@ -19,7 +19,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { NgxPaginationModule } from 'ngx-pagination';
-
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -49,7 +49,9 @@ import { NgxPaginationModule } from 'ngx-pagination';
     MatButtonModule,
     MatGridListModule,
     BrowserModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    Ng2SearchPipeModule
+    
 
   ],
   providers: [],
