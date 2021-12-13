@@ -36,4 +36,7 @@ export class FournisseurService {
       this.curFournisseur.next(this.tab);
     }));
   }
+  AddRayon(data:Fournisseur){
+    return this.http.post(this.url+'/fournisseur/AllFournisseur',data,{ observe: 'response' })
+  }
 }

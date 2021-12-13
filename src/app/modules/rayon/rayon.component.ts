@@ -20,7 +20,9 @@ rayon:Rayon;
 rayons:Rayon[];
 tab:any=[];
 myForm: FormGroup;
+myForm1: FormGroup;
 update:boolean=false;
+add:boolean=false;
 showUpdate:boolean=false;
 p: number = 1;
 i:number=1;
@@ -124,6 +126,13 @@ submitted = false;
       this.update=false;
     }
   }
+  concel1(){
+    if(this.add==false){
+      this.add=true;
+    }else{
+      this.add=false;
+    }
+  }
   updateRayonn(){
     this.submitted = true;
     if (this.myForm.invalid) {
@@ -136,5 +145,25 @@ submitted = false;
       
     }),()=>this.toastr.error("Error !","Update profile notification");
   }
+  AddRayon(){
+    this.rayon=new Rayon();
+      this.myForm1= new FormGroup({
+        'libelle':new FormControl("",Validators.required),
+        'code':new FormControl('',Validators.required),
+      })
+    
+      if(this.add==false){
+        this.add=true;
+      
+        this.rayonservice.curRayon.subscribe(
+          (data:Rayon)=>{this.ry=data},
+          ()=>{}
+        )
+        
+    
+      }else{
+        this.add=true;
+      }
+    }
   
 }

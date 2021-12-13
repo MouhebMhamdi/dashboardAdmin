@@ -35,4 +35,7 @@ export class RayonService {
       this.curRayon.next(this.tab);
     }));
   }
+  AddRayon(data:Rayon){
+    return this.http.post(this.url+'/Rayon/AddRayon',data,{ observe: 'response' })
+  }
 }
