@@ -27,8 +27,8 @@ export class DefaultComponent implements OnInit {
       
       this.data=localStorage.getItem("data");
 
-      if(this.users.email!=null) {
-        
+      if(this.users.email==null) {
+        console.log("vide")
       }
   }
 

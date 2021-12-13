@@ -45,6 +45,7 @@ export class HeaderComponent implements OnInit {
 }
 
 logout(){
+ 
   this.authService.sharedUser.subscribe(
     (data:Users)=>
     {this.users=new Users()},
@@ -52,7 +53,7 @@ logout(){
     ()=>{this.users = new Users()}
   )
   this.authService.logOut();
-  this.router.navigate(['/login'])
+  
 }
   toggleSideBar(){
     

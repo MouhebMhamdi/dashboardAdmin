@@ -1,7 +1,11 @@
 <mat-nav-list *ngIf="users.email!=null">
     <div class="profile-card mb-3">
         <br>
-        <img src="/assets/{{users.docName}}"  alt="User Photo">
+        <div class="user-avatar ">
+            <img *ngIf="users.docName!=null" src="../../../../assets/{{users.docName}}" width="30"alt="Admin">
+            <img *ngIf="users.docName==null && users.genre=='m'" src="../../../../assets/user.png" width="30" alt="Admin">
+             <img *ngIf="users.docName==null && users.genre=='w'" src="../../../../assets/femme.png" width="30" alt="Admin">
+            </div>
         <div class="header">
             <h2>{{users.nom}} {{users.prenom}}</h2>
             <p >{{users.email}}</p>
