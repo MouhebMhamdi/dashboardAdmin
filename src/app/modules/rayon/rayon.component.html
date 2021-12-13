@@ -1,0 +1,89 @@
+<p>rayon works!</p>
+<div class="container w-75 user"*ngIf="!update" >
+
+    <div class="input-group rounded">
+      <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
+             aria-describedby="search-addon"  [(ngModel)]="term"/>
+      <span class="input-group-text border-0" id="search-addon">
+              <i class="bi bi-search"></i>
+          </span>
+    </div>
+  
+    <table class="table table-striped ">
+      <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">LIBELLE</th>
+        <th scope="col">CODE</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr  *ngFor="let r of rayons  | filter:term| paginate: { itemsPerPage: 4, currentPage: p}  ;index as i">
+  
+        <td>{{r.idRayon}}</td>
+        <td>{{r.libelle}}</td>
+        <td>{{r.code}}</td>
+  
+        <td></td>
+        <td>
+          <button type="button" class="btn btn-outline-dark " (click)="updateRayon(r.idRayon)"><i class="bi bi-pencil-square"></i></button>
+          <button type="button" class="btn btn-outline-dark " (click)="delete(r.idRayon)"><i class="bi bi-trash"></i></button>
+        </td>
+      </tr>
+  
+      </tbody>
+    </table>
+    <div class="text-center mt-5  ">
+      <pagination-controls class="my-pagination"></pagination-controls>
+  
+    </div>
+   
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  
+  <div class="container" *ngIf="update">
+    <div class="box">
+  <form class="wrapper fadeInDown   pt-5 pl-5 pr-5" [formGroup]="myForm">
+    <div class="row container">
+      <h1>Update rayon</h1>
+      <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+        <h4 class="mt-3 "><b>Rayon Details</b></h4>
+        <hr class="text-dark " >
+      </div>
+      <div class="col-6 pb-3">
+        <div class="form-group">
+          <label>Libelle :</label>
+          <input type="text" class="form-control" formControlName="libelle" [(ngModel)]="ry.libelle" [ngClass]="{ 'is-invalid': submitted && myForm.controls.libelle.errors }">
+          <div *ngIf="myForm.controls['libelle'].hasError('required')" class="invalid-feedback">
+            <div>Libelle is required</div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-6 pb-3">
+        <div class="form-group">
+          <label>Code :</label>
+          <input type="text" class="form-control" formControlName="code" [(ngModel)]="ry.code" [ngClass]="{ 'is-invalid': submitted && myForm.controls.code.errors }">
+          <div *ngIf="myForm.controls['code'].hasError('required')" class="invalid-feedback">
+            <div>Code is required</div>
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-12 d-flex justify-content-end pt-5 pb-3">
+        <button class="btn btn-outline-dark mx-3">Update</button>
+        <button class="btn btn-outline-dark " (click)="concel()">Concel</button>
+      </div>
+      
+    </div>
+  
+  </form>
+  
+  </div>
+  </div>
