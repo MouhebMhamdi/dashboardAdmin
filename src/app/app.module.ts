@@ -20,11 +20,17 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+
+import { EditFactureComponent } from './modules/edit-facture/edit-facture.component';
+import { AddFactureComponent } from './modules/addfacture/add-facture/add-facture.component';
+
+
 import {MatRadioModule} from '@angular/material/radio';
 import { DARK_MODE_OPTIONS} from 'angular-dark-mode';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { RayonComponent } from './modules/rayon/rayon.component';
 import { ClaimsComponent } from './modules/claims/claims.component';
+
 
 @NgModule({
   declarations: [
@@ -35,9 +41,14 @@ import { ClaimsComponent } from './modules/claims/claims.component';
     FactureComponent,
     FournisseurComponent,
     UserAuthComponent,
+    EditFactureComponent,
+    AddFactureComponent,
+
+
     RayonComponent,
     ClaimsComponent,
  
+
   ],
   imports: [
     BrowserModule,
@@ -56,10 +67,13 @@ import { ClaimsComponent } from './modules/claims/claims.component';
     MatGridListModule,
     BrowserModule,
     NgxPaginationModule,
+
+    Ng2SearchPipeModule
+
     Ng2SearchPipeModule,
     MatRadioModule,
     MatSlideToggleModule
-    
+
 
   ],
   providers: [
