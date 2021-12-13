@@ -4,6 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Users } from '../../Model/User';
 import { catchError, map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -18,17 +19,15 @@ export class UserService {
   public password:string;
 
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private router:Router) { }
 
 
   login(email: string, password: string) {
 
     return this.http.get(this.url+'/user/login?email='+email+"&password="+password,
       { headers: { authorization: this.createBasicAuthToken(email, password) } }).pipe(map((res) => {
-        this.email = email;
-        this.password = password;
+        
          this.tab=res;
-         
          this.tab.roles.forEach((element:any) => {
            
           if(element.role!="ADMIN") throw new Error("Not a ADMIN");
@@ -60,18 +59,17 @@ export class UserService {
   }
 
   logOut() {
-    
+    this.curUser.complete;
+    this.curUser.lift;
+    this.curUser.next(new Users());
     localStorage.removeItem('email');
     sessionStorage.removeItem('email');
     sessionStorage.clear();
     localStorage.clear();
-    this.curUser.lift;
-
-    
+    this.router.navigate(['/login']);
   }
 
   getUserConnect(email: string) {
-    console.log(email+" ")
     return this.http.get(this.url+'/user/getUserByEmail/'+email).pipe(map(data => {
       this.tab=data;
       this.curUser.next(this.tab);
