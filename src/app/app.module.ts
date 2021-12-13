@@ -24,6 +24,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import { DARK_MODE_OPTIONS} from 'angular-dark-mode';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { RayonComponent } from './modules/rayon/rayon.component';
+import { ClaimsComponent } from './modules/claims/claims.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { RayonComponent } from './modules/rayon/rayon.component';
     FournisseurComponent,
     UserAuthComponent,
     RayonComponent,
+    ClaimsComponent,
  
   ],
   imports: [
