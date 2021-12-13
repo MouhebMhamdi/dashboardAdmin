@@ -1,14 +1,20 @@
 <mat-toolbar color="primary" *ngIf="users.email!=null">
     <mat-toolbar-row>
+       
+
         <button mat-icon-button (click)="toggleSideBar()">
             <mat-icon>menu</mat-icon>
         </button>
+        
         <span> <a routerLink="/" ><img src="../../../../assets/store.png" width="60" alt="logo"></a></span>
         <div fxFlex fsLayout="row" fxLayoutAlign="flex-end">
                 <ul fxLayout="row" fxLayoutGap="20px">
                    
                    
                     <li>
+                        
+                        <mat-slide-toggle class="px-2 pt-2" [checked]="darkMode$ | async" (change)="onToggle()"></mat-slide-toggle> <i class="bi bi-moon-stars-fill "></i>
+
                         <button mat-button [matMenuTriggerFor]="menu">
                             <mat-icon>person_outline</mat-icon>
                         </button>

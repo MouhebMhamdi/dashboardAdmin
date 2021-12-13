@@ -4,3 +4,169 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+.ngx-pagination {
+    padding-left: 0px !important;
+  }
+  
+  .ngx-pagination .current,
+  .btn-info {
+    background: #F7941D !important;
+    border: transparent !important;
+   
+  }
+  
+  .ngx-pagination .current:hover {
+    background: #F7941D !important;
+   
+    border: transparent !important;
+  }
+.dark-mode .mat-toolbar.mat-primary,.dark-mode mat-drawer-container{
+    background-color: black;
+    color: #dfe6e9;
+  }
+
+  .dark-mode  .mat-nav-list .mat-list-item,
+  .dark-mode .mat-action-list .mat-list-item,
+  .dark-mode .mat-list-option {
+    color: white !important;
+  }
+
+  .dark-mode mat-nav-list {
+    background-color: black;
+    color: #dfe6e9;
+  }
+  .dark-mode .mat-icon{
+      color: white;
+  }
+  .dark-mode mat-divider  {
+    border-top-color: white;
+}
+.dark-mode h2.mat-subheader {
+   color: white;
+}
+.dark-mode .container .box h1,.dark-mode .container .box h4{
+    color: white;
+}
+
+.light-mode #formContent {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    min-height: 380px;
+    width: 90%;
+    height: auto;
+    max-width: 450px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px 0 rgba(0,0,0,0.2);
+  
+  }
+
+  .dark-mode #formContent {
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: rgba(255,255,255,0.4);;
+    min-height: 380px;
+    width: 90%;
+    height: auto;
+    max-width: 450px;
+    position: relative;
+    padding: 0px;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(0,0,0,0.2);
+    box-shadow: 0 10px 30px 0 rgba(0,0,0,0.2);
+  
+  }
+  .light-mode .btn-outline-primary, .btn-outline-primary:hover, .btn-outline-primary:active, .btn-outline-primary:visited{
+      color: #F7941D;
+  }
+  .light-mode .btn-outline-primary:hover{
+      background-color: #F7941D;
+      color: white;
+      border: #F7941D;
+  }
+  .dark-mode .btn-outline-primary, .btn-outline-primary:hover, .btn-outline-primary:active, .btn-outline-primary:visited{
+    color: black;
+}
+    .dark-mode .btn-outline-primary:hover{
+        background-color: white;
+        color: black;
+        border: black;
+    }
+  .dark-mode mat-drawer{
+      background-color: rgba(255,255,255,0.4);
+  }
+  .dark-mode .active,.dark-mode .active:focus,.dark-mode .active::before{
+    background-color: rgba(255,255,255,0.4);
+    color: black;
+  }
+  .dark-mode .box{
+  
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 10px 5px 10px rgba(255, 255, 255, 0.2);
+    width: 50%;
+    
+    margin: 0 auto;
+    height: auto;
+  }
+  .light-mode .box{
+  
+    background-color: #ffffff;
+    box-shadow: 10px 5px 10px rgba(0, 0, 0, 0.2);
+    width: 50%;
+  
+    margin: 0 auto;
+    height: auto;
+  }
+
+  .light-mode .active,.light-mode .active:focus,.light-mode .active::after{
+    background-color: #F7941D;
+  }
+   .light-mode .mat-toolbar.mat-primary{
+    background-color: #F7941D;
+    color: #ffff;
+  }
+  .dark-mode mat-drawer-container ,.dark-mode .table .table-striped {
+    background-color: black;
+    color: white;
+  }
+
+  .dark-mode .table-striped>tbody>tr>td, 
+  .dark-mode .table-striped>tbody>tr>th {
+     background-color: black; // Choose your own color here
+     color: white;
+   }
+   .dark-mode .table-striped>thead>tr>th, 
+   .dark-mode .table-striped>thead>tr>th {
+     background-color: black; // Choose your own color here
+     color: white;
+   }
+
+   .dark-mode  .btn-outline-dark{
+       border: white;
+       color: white;
+   }
+   .dark-mode .ngx-pagination {
+    padding-left: 0px !important;
+    background-color: white !important;
+    width: auto !important;
+  }
+  
+  .dark-mode .ngx-pagination .current,
+  .dark-mode .btn-info {
+    background: black !important;
+    border: transparent !important;
+    color: white;       
+    
+  }
+  
+  .dark-mode .ngx-pagination .current:hover {
+    background: rgb(223, 220, 220) !important;
+   color: black;
+    border: transparent !important;
+  }
+   
+  .light-mode mat-drawer-container
+  body:not(.dark-mode-preloading) {
+    transition: all 0.3s linear;
+  }
