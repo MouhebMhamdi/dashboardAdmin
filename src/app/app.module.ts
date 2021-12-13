@@ -25,6 +25,8 @@ import { DARK_MODE_OPTIONS} from 'angular-dark-mode';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { RayonComponent } from './modules/rayon/rayon.component';
 import { ClaimsComponent } from './modules/claims/claims.component';
+import { EditFactureComponent } from './modules/Facture/edit-facture/edit-facture.component';
+import { AddFactureComponent } from './modules/Facture/add-facture/add-facture.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { ClaimsComponent } from './modules/claims/claims.component';
     UserAuthComponent,
     RayonComponent,
     ClaimsComponent,
+    EditFactureComponent,
+    AddFactureComponent,
  
   ],
   imports: [

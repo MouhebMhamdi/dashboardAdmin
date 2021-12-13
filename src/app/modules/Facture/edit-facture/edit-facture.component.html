@@ -1,0 +1,28 @@
+<div class="card-body" >
+    <form [formGroup]="myForm" (submit)="edit()" >
+      <div class="form-group">
+        <label>idFacture</label>
+        <input type="text" class="form-control" formControlName="idFacture">
+      </div>
+      <div class="form-group">
+        <label>montantRemise</label>
+        <input type="text" class="form-control" formControlName="montantRemise">
+      </div>
+      <div class="form-group">
+        <label>montantFacture</label>
+        <input type="text" class="form-control" formControlName="montantFacture">
+      </div>
+  
+  
+  
+      <div class="form-group">
+        <label>Date Facture</label>
+        <input type="text" class="form-control" formControlName="dateFacture">
+      </div>
+      <div class="form-group">
+        <label>Status</label>
+        <input type="text" class="form-control" formControlName="active">
+      </div>
+      <input type="submit" class="btn btn-primary">
+    </form>
+  </div>
