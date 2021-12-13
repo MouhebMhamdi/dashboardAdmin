@@ -9,14 +9,12 @@ import { catchError, map } from 'rxjs/operators';
 })
 export class UserServiceService {
   url=environment.hostUrl;
-
-
   tab:any=[]
   user:Users = new Users();
   public curUser= new BehaviorSubject(this.user);
   sharedUsers = this.curUser.asObservable();
   constructor(private http:HttpClient) { }
-
+  
 
   getAllUsers(){
     return this.http.get(this.url+"/user/getAllUsers",{observe:"response"});

@@ -135,7 +135,7 @@ export class UserComponent implements OnInit,OnChanges {
   }
   getAllUsers(){
     this.userService.getAllUsers().subscribe((res)=>{
-     this.tab=res;
+     this.tab=res; 
      console.log(this.tab.body)
     })
   }
@@ -181,13 +181,6 @@ updateProfile(){
     
    return;
   }
-
-  this.userService.updateUser(this.users,String(localStorage.getItem('data'))).subscribe((res)=>{
-
-  this.UploadImg(this.users.idClient);
-  this.toastr.success('Profile updated thanks !');
-
-
   this.userService.updateUser(this.us,this.us.idClient).subscribe((res)=>{
     this.getAllUsers();
     this.update=false;
