@@ -2,23 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
-import { Fournisseur } from 'src/app/core/Model/Fournisseur';
-import { Users } from 'src/app/core/Model/User';
+import { Rayon } from 'src/app/core/Model/Rayon';
 import { UserService } from 'src/app/core/Services/auth/user.service';
-import { FournisseurService } from 'src/app/core/Services/fournisseur.service';
+import { RayonService } from 'src/app/core/Services/rayon.service';
 import Swal from 'sweetalert2';
 
 @Component({
-  selector: 'app-fournisseur',
-  templateUrl: './fournisseur.component.html',
-  styleUrls: ['./fournisseur.component.scss']
+  selector: 'app-rayon',
+  templateUrl: './rayon.component.html',
+  styleUrls: ['./rayon.component.scss']
 })
-export class FournisseurComponent implements OnInit {
+export class RayonComponent implements OnInit {
 data:any;
-four:Fournisseur;
-fournisseurss:Fournisseur;
-fournisseur:Fournisseur;
-fournisseurs:Fournisseur[];
+ry:Rayon;
+rayonss:Rayon;
+rayon:Rayon;
+rayons:Rayon[];
 tab:any=[];
 myForm: FormGroup;
 update:boolean=false;
@@ -28,25 +27,25 @@ i:number=1;
 term: string;
 file:File;
 submitted = false;
-  constructor(private toastr: ToastrService,private fournisseurservice:FournisseurService,private authService:UserService,public router: Router) { }
+  constructor(private toastr: ToastrService,private rayonservice:RayonService,private authService:UserService,public router: Router) { }
 
   ngOnInit(): void {
-    this.fournisseurservice.getAllFournisseur().subscribe(res => {
-      this.fournisseurs = res;
+    this.rayonservice.getAllRayon().subscribe(res => {
+      this.rayons = res;
     })
-    this.fournisseurservice.sharedFournisseurs.subscribe(
-      (data:Fournisseur)=>
-      {this.four=data},
+    this.rayonservice.sharedRayons.subscribe(
+      (data:Rayon)=>
+      {this.ry=data},
       ()=>{},
-      ()=>{this.four = new Fournisseur()}
+      ()=>{this.ry = new Rayon()}
     )
-    this.four=new Fournisseur();
+    this.ry=new Rayon();
     this.data=localStorage.getItem("data");
 
   }
-  getAllFournisseurs(){
-    this.fournisseurservice.getAllFournisseur().subscribe((fournisseurs)=>{
-     this.tab=fournisseurs; 
+  getAllUsers(){
+    this.rayonservice.getAllRayon().subscribe((rayons)=>{
+     this.tab=rayons; 
      console.log(this.tab.body)
     })
   }
@@ -75,9 +74,9 @@ submitted = false;
       reverseButtons: true
     }).then((result) => {
       if (result.isConfirmed) {
-        this.fournisseurservice.DeleteFournisseur(id).subscribe((fournisseurs)=>{
-          this.tab=fournisseurs;
-          this.toastr.success("Fournisseur Deleted !!","Admin notification");
+        this.rayonservice.DeleteRayonByID(id).subscribe((rayons)=>{
+          this.tab=rayons;
+          this.toastr.success("Rayon Deleted !!","Admin notification");
         }),()=>this.toastr.error("Error Delete !!","Admin notification");
         swalWithBootstrapButtons.fire(
           'Deleted!',
@@ -97,8 +96,8 @@ submitted = false;
     })  
   } 
 
-  updateFournisseur(id:any){
-    this.fournisseurservice.findById(id).subscribe((res)=>{})
+  updateRayon(id:any){
+    this.rayonservice.FindRayonByID(id).subscribe((res)=>{})
   
     this.myForm= new FormGroup({
       'libelle':new FormControl("",Validators.required),
@@ -108,8 +107,8 @@ submitted = false;
     if(this.update==false){
       this.update=true;
     
-      this.fournisseurservice.curFournisseur.subscribe(
-        (data:Fournisseur)=>{this.four=data},
+      this.rayonservice.curRayon.subscribe(
+        (data:Rayon)=>{this.ry=data},
         ()=>{}
       )
       
@@ -125,17 +124,17 @@ submitted = false;
       this.update=false;
     }
   }
-  updateFournisseurr(){
+  updateRayonn(){
     this.submitted = true;
     if (this.myForm.invalid) {
       
      return;
     }
-    this.fournisseurservice.UpdateUser(this.four,this.four.idFournisseur).subscribe((res)=>{
-      this.fournisseurservice.getAllFournisseur();
+    this.rayonservice.updaterayon(this.ry,this.ry.idRayon).subscribe((res)=>{
+      this.rayonservice.getAllRayon();
       this.update=false;
       
-    }),()=>this.toastr.error("Error !","Update Fournisseur notification");
+    }),()=>this.toastr.error("Error !","Update profile notification");
   }
   
 }

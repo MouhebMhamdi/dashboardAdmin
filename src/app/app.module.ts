@@ -23,6 +23,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {MatRadioModule} from '@angular/material/radio';
 import { DARK_MODE_OPTIONS} from 'angular-dark-mode';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import { RayonComponent } from './modules/rayon/rayon.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     FactureComponent,
     FournisseurComponent,
     UserAuthComponent,
+    RayonComponent,
  
   ],
   imports: [
