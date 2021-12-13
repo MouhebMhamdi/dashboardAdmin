@@ -21,7 +21,6 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {MatRadioModule} from '@angular/material/radio';
-import { RayonComponent } from './modules/rayon/rayon.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +31,6 @@ import { RayonComponent } from './modules/rayon/rayon.component';
     FactureComponent,
     FournisseurComponent,
     UserAuthComponent,
-    RayonComponent,
  
   ],
   imports: [
