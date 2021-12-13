@@ -21,8 +21,10 @@ fournisseur:Fournisseur;
 fournisseurs:Fournisseur[];
 tab:any=[];
 myForm: FormGroup;
+myForm1: FormGroup;
 update:boolean=false;
 showUpdate:boolean=false;
+add:boolean=false;
 p: number = 1;
 i:number=1;
 term: string;
@@ -125,6 +127,13 @@ submitted = false;
       this.update=false;
     }
   }
+  concel1(){
+    if(this.add==false){
+      this.add=true;
+    }else{
+      this.add=false;
+    }
+  }
   updateFournisseurr(){
     this.submitted = true;
     if (this.myForm.invalid) {
@@ -137,5 +146,26 @@ submitted = false;
       
     }),()=>this.toastr.error("Error !","Update Fournisseur notification");
   }
+  AddFournisseur(){
+  this.fournisseur=new Fournisseur();
+    this.myForm1= new FormGroup({
+      'libelle':new FormControl("",Validators.required),
+      'code':new FormControl('',Validators.required),
+    })
+  
+    if(this.add==false){
+      this.add=true;
+    
+      this.fournisseurservice.curFournisseur.subscribe(
+        (data:Fournisseur)=>{this.four=data},
+        ()=>{}
+      )
+      
+  
+    }else{
+      this.add=true;
+    }
+  }
   
 }
+
