@@ -20,6 +20,9 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { MainProductComponent } from './modules/Produit/main-product/main-product.component';
+import { FormProductComponent } from './modules/Produit/form-product/form-product.component';
+
 
 
 @NgModule({
@@ -31,7 +34,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FactureComponent,
     FournisseurComponent,
     UserAuthComponent,
- 
+    MainProductComponent,
+    FormProductComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -51,7 +56,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     BrowserModule,
     NgxPaginationModule,
     Ng2SearchPipeModule
-    
+
 
   ],
   providers: [],
