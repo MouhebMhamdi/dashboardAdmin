@@ -1,3 +1,5 @@
+
+
 .example-card {
     width: 300px;
   }
@@ -98,3 +100,20 @@
   background-color:rgb(255, 165, 0,0.5);
   transition: 0.5s;
 }
+.margin{
+  padding-top: 50px;
+}
+.wrapper {
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  
+  width: 100%;
+  min-height: 100%;
+ 
+
+
+
+}
+

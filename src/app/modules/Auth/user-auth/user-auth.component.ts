@@ -14,7 +14,6 @@ import { UserService } from 'src/app/core/Services/auth/user.service';
 export class UserAuthComponent implements OnInit,OnChanges {
   user:Users = new Users();
   public curUser= new BehaviorSubject(this.user);
-
   sharedUser = this.curUser.asObservable();
 
   myFormLogin: FormGroup;
@@ -27,11 +26,13 @@ export class UserAuthComponent implements OnInit,OnChanges {
   constructor(private formBuilder: FormBuilder,private toastr: ToastrService,private router:Router,private authService:UserService) { }
 
   ngOnInit(): void {
-   
+    if(localStorage.getItem("email")!=null){
+      this.router.navigate(['/user'])
+    }
     this.authService.sharedUser.subscribe(
-      (data:Users)=>{this.users=data},
+      (data:Users)=>{this.user=data},
       ()=>{},
-      ()=>{this.users = new Users()}
+      ()=>{this.user = new Users()}
     )
 
     this.myFormLogin=  this.formBuilder.group(
@@ -45,6 +46,10 @@ export class UserAuthComponent implements OnInit,OnChanges {
         ]]
 
       });
+
+      if(this.user.email!=null){
+        this.router.navigate(['/user']);
+      }
   }
   ngOnChanges():void{
     this.authService.sharedUser.subscribe(
@@ -63,17 +68,10 @@ export class UserAuthComponent implements OnInit,OnChanges {
 
     this.authService.login(myForm.controls['email'].value,myForm.controls['password'].value).subscribe((user:any )=>{
       this.tab=user;
-     
-      this.successMessage="Login Successful";
+      this.curUser.next(this.tab);
       
-      this.verifUserRoleConncet(myForm.controls['email'].value);
-      this.curUser.next(this.tab['nom']);
-     
-      
-      
-    },()=>{
-      this.msg = 'please give a valid account';
-    },()=>this.router.navigate(["/user"])
+    },()=>this.msg = 'please give a valid account'
+    ,()=>this.router.navigate(["/user"])
     )
   }
   verifUserRoleConncet(email:string){

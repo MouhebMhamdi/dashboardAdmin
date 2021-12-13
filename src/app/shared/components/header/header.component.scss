@@ -2,7 +2,10 @@ ul li {
     list-style: none;
   }
 
-  .mat-toolbar.mat-primary {
-    background: #F7941D;
-    color: #fff;
-  }
+  :host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: rgba(255,255,255,0.5) ;
+}
+
+:host ::ng-deep  .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: white;
+}

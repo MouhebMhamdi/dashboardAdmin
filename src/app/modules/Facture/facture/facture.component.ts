@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+
 import {FactureService} from "../../../core/Services/facture/facture.service";
 import  {Facture} from "../../../core/Model/Facture";
 import {ToastrService} from "ngx-toastr";
 import Swal from 'sweetalert2';
+
+import { Router } from '@angular/router';
+import { Users } from 'src/app/core/Model/User';
+import { UserService } from 'src/app/core/Services/auth/user.service';
 
 @Component({
   selector: 'app-facture',
@@ -10,6 +15,7 @@ import Swal from 'sweetalert2';
   styleUrls: ['./facture.component.scss']
 })
 export class FactureComponent implements OnInit {
+
 facts:Facture[];
 tab:any;
   term: string;
@@ -110,5 +116,26 @@ tab:any;
 
 
 
+
+
+  users:Users;
+
+  constructor(private router:Router,private authService:UserService) { }
+
+  ngOnInit(): void {
+    this.verifUserRoleConncet(String(localStorage.getItem("email")))
+    this.authService.sharedUser.subscribe(
+      (data:Users)=>
+      {this.users=data},
+      ()=>{},
+      ()=>{this.users = new Users()}
+    )
+    if(localStorage.getItem("email")==null){
+      this.router.navigate(['/login'])
+    }
+  }
+  verifUserRoleConncet(email:string){
+    this.authService.getUserConnect(String(email)).subscribe(user =>{})
+}
 
 }
