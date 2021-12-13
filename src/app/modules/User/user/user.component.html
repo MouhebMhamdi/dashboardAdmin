@@ -1,5 +1,5 @@
 <div class="container w-75 user" *ngIf="!update">
-    
+
     <div class="input-group rounded">
         <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
         aria-describedby="search-addon" [(ngModel)]="term" />
@@ -7,7 +7,7 @@
             <i class="bi bi-search"></i>
         </span>
     </div>
- 
+
     <table class="table table-striped ">
         <thead>
           <tr>
@@ -21,11 +21,12 @@
         </thead>
         <tbody>
           <tr *ngFor="let u of tab.body  | filter:term| paginate: { itemsPerPage: 4, currentPage: p}  ;index as i">
-           
+
             <td >
                 <div class="row">
                     <div class="col-sm-2">
                         <div class="user-avatar ">
+
                         <img *ngIf="u.docName!=null" src="../../../../assets/{{u.docName}}" width="30"alt="Admin">
                         <img *ngIf="u.docName==null && u.genre=='m'" src="../../../assets/user.png" width="30" alt="Admin">
                          <img *ngIf="u.docName==null && u.genre=='w'" src="../../../assets/femme.png" width="30" alt="Admin">
@@ -35,23 +36,23 @@
                         {{u.nom}} {{u.prenom}}
                     </div>
                 </div>
-               
-                    
-                
-                
-               
-      
+
+
+
+
+
+
             </td>
             <td>{{u.proffesion}}</td>
             <td>{{u.email}} </td>
             <td>{{u.roles[0].role}}</td>
             <td>{{u.street}} {{u.city}} {{u.state}}  {{u.zip}}</td>
             <td>
-                <button type="button" class="btn btn-outline-dark " (click)="updateUser(u.idClient)"><i class="bi bi-pencil-square"></i></button> 
+                <button type="button" class="btn btn-outline-dark " (click)="updateUser(u.idClient)"><i class="bi bi-pencil-square"></i></button>
                 <button type="button" class="btn btn-outline-dark "  (click)="delete(u.idClient)" ><i class="bi bi-trash"></i></button>
             </td>
           </tr>
-         
+
         </tbody>
       </table>
       <div class="text-center mt-5  ">

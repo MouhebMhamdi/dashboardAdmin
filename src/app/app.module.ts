@@ -20,6 +20,8 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { EditFactureComponent } from './modules/edit-facture/edit-facture.component';
+import { AddFactureComponent } from './modules/addfacture/add-facture/add-facture.component';
 
 
 @NgModule({
@@ -31,7 +33,9 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FactureComponent,
     FournisseurComponent,
     UserAuthComponent,
- 
+    EditFactureComponent,
+    AddFactureComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -51,7 +55,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     BrowserModule,
     NgxPaginationModule,
     Ng2SearchPipeModule
-    
+
 
   ],
   providers: [],

@@ -8,9 +8,9 @@ import { Users } from '../Model/User';
 })
 export class UserServiceService {
   url=environment.hostUrl;
-  
+
   constructor(private http:HttpClient) { }
-  
+
 
   getAllUsers(){
     return this.http.get(this.url+"/user/getAllUsers",{observe:"response"});
