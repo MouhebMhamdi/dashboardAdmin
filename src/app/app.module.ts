@@ -21,6 +21,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import {MatRadioModule} from '@angular/material/radio';
+import { DARK_MODE_OPTIONS} from 'angular-dark-mode';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 @NgModule({
   declarations: [
@@ -51,11 +53,20 @@ import {MatRadioModule} from '@angular/material/radio';
     BrowserModule,
     NgxPaginationModule,
     Ng2SearchPipeModule,
-    MatRadioModule
+    MatRadioModule,
+    MatSlideToggleModule
     
 
   ],
-  providers: [],
+  providers: [
+    {
+      provide: DARK_MODE_OPTIONS,
+            useValue: {
+                darkModeClass: 'dark-mode',
+                lightModeClass: 'light-mode'
+            }
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -25,9 +25,14 @@ export class UserComponent implements OnInit,OnChanges {
   file:File;
   submitted = false;
   data:any;
-  constructor(private toastr: ToastrService,private userService:UserServiceService,private authService:UserService,public router: Router) { }
- 
+  admin:number=0;
+  userLn:number=0;
+  constructor(private toastr: ToastrService,private userService:UserServiceService,private authService:UserService,public router: Router) { 
+    
+  }
+  
   ngOnChanges(changes: SimpleChanges): void {
+    this.getTotal();
     this.verifUserRoleConncet(String(localStorage.getItem("email")))
 
     this.authService.sharedUser.subscribe(
@@ -39,7 +44,7 @@ export class UserComponent implements OnInit,OnChanges {
   }
 
   ngOnInit(): void {
-   
+   this.getTotal();
     this.authService.sharedUser.subscribe(
       (data:Users)=>
       {this.users=data},
@@ -65,6 +70,20 @@ export class UserComponent implements OnInit,OnChanges {
     this.getAllUsers();
     
   }
+  getTotal(){
+    
+    this.userService.getAllUsers().subscribe((res)=>{
+      this.tab=res; 
+      for(let i of this.tab.body){
+        if(i.roles[0].role=="ADMIN"){
+          this.admin+=1;
+        }else{
+          this.userLn+=1;
+        }
+      }
+  })
+   
+}
   verifUserRoleConncet(email:string){
     this.authService.getUserConnect(String(email)).subscribe(user =>{})
 }
@@ -72,6 +91,7 @@ export class UserComponent implements OnInit,OnChanges {
     this.file = event.target.files[0];
   }
   delete(id:any){
+    
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
         confirmButton: 'btn btn-success',
@@ -92,7 +112,7 @@ export class UserComponent implements OnInit,OnChanges {
       if (result.isConfirmed) {
         this.userService.deleteUsers(id).subscribe((res)=>{
           this.tab=res;
-          this.toastr.success("User Deleted !!","Admin notification");
+        this.getTotal();
         }),()=>this.toastr.error("Error Delete !!","Admin notification");
         swalWithBootstrapButtons.fire(
           'Deleted!',

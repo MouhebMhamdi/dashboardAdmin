@@ -1,5 +1,10 @@
 <div class="container w-75 user" *ngIf="!update" >
     
+
+  
+
+
+  
     <div class="input-group rounded">
         <input type="search" class="form-control rounded" placeholder="Search" aria-label="Search"
         aria-describedby="search-addon" [(ngModel)]="term" />
@@ -7,7 +12,7 @@
             <i class="bi bi-search"></i>
         </span>
     </div>
- 
+    
     <table class="table table-striped ">
         <thead>
           <tr>
@@ -54,6 +59,25 @@
         <pagination-controls class="my-pagination" (pageChange)="p = $event"></pagination-controls>
     </div>
     
+</div>
+<div class=" container w-75 user row text-center d-flex justify-content-center" *ngIf="!update">
+  <div class="col-6">
+    <mat-card class="example-card">
+      <mat-card-title>Number of Admins</mat-card-title>
+      <mat-card-content>
+        <h1>{{admin}}</h1>
+      </mat-card-content>
+    </mat-card>
+  </div>
+  <div class="col-6">
+    <mat-card class="example-card">
+      <mat-card-title>Number of users</mat-card-title>
+      <mat-card-content>
+        <h1>{{userLn}}</h1>
+        
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
 <div class="container" *ngIf="update">
   <div class="box">
